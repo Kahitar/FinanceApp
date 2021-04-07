@@ -1,0 +1,38 @@
+{% include 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="float-left mt-2 mb-2 mr-2">
+        <a class="btn btn-sm btn-outline-info" href="#">DoSomething</a>
+    </div>
+    <div class="float-right mt-2">
+        <div class="nav-item bg-warning">Last update: ###</div>
+    </div>
+    <div class="table-responsive">
+    <table class="table table-hover table-sm">
+    <tbody>
+        <tr class="table-active">
+            <th>Asset</th>
+            <th>Amount</th>
+            <th>Buy In</th>
+            <th>Fee</th>
+            <th>Buy Sum</th>
+            <th>Current Price</th>
+            <th>Value</th>
+        </tr>
+    	{% for asset in assets %}
+            <tr>
+                <td>{{ asset.name }}</td>
+                <td>{{ asset.amount }}</td>
+                <td>{{ asset.buy_price }}</td>
+                <td>{{ asset.fee }}</td>
+                <td>{{ asset.buy_sum }}</td>
+                <td>{{ asset.price }}</td>
+                <td>{{ asset.value }}</td>
+            </tr>
+    	{% endfor %}
+    </tbody>
+    </table>
+    </div>
+</div>
+{% endblock content %}
